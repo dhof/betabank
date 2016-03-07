@@ -1,0 +1,32 @@
+{
+  "name": "betabankdev",
+  "version": "1.0.0",
+  "description": "Beta Bank development",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhof/betabankdev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhof/betabankdev/issues"
+  },
+  "homepage": "https://github.com/dhof/betabankdev#readme",
+  "dependencies": {
+     "body-parser": "1.x",
+     "express": "4.x",
+     "mongoose": "^4.4.4",
+     "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^1.5.3"
+  }
+}
