@@ -19,7 +19,6 @@
   "homepage": "https://github.com/dhof/betabankdev#readme",
   "dependencies": {
     "body-parser": "1.x",
-    "bootstrap": "^3.3.6",
     "express": "4.x",
     "mongoose": "^4.4.4",
     "morgan": "^1.7.0"
