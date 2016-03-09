@@ -18,10 +18,13 @@
   },
   "homepage": "https://github.com/dhof/betabankdev#readme",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "1.x",
     "express": "4.x",
     "mongoose": "^4.4.4",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

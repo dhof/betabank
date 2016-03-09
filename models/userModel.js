@@ -6,17 +6,16 @@ var userSchema = mongoose.Schema({
 	lastName  : String,
 	userName  : String,
 	password  : String,
-	email     : String,
-	city	  : String,
-	state     : String,
-	country	  : String,
+	// email     : String,
+	// city	  : String,
+	// state     : String,
+	// country	  : { type: String, default : 'United States' }
 	date      : { type : Date, default : Date.now }
 });
 
 // Set Model(Collection) name
-var Users = mongoose.model('Users', userSchema);
+var User = mongoose.model('User', userSchema);
 
 module.exports = {
-	userSchema : userSchema,
-	Users 	   : Users
+	User : User
 };

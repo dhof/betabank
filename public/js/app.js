@@ -19,8 +19,22 @@ app.config(['$routeProvider', function($routeProvider) {
 }])
 
 
-app.controller('homeController', ['$scope', function($scope) {
+app.controller('homeController', ['$scope', '$http', function($scope, $http) {
 	console.log("home control")
+	$http.get('/getuser')
+		.then(function(returnData){
+			if(!returnData.data.user){
+				// Kick em out
+				window.location.href = '/'
+				// $location.url()
+			}
+			else{
+				// rest of controller goes here
+				$scope.user = returnData.data.user
+				console.log($scope.user)
+
+			}
+		})
 }])
 
 app.controller('userController', ['$scope', function($scope) {

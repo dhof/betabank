@@ -1,2 +1,23 @@
 
-<div>welcome home page</div>
+
+
+<form ng-submit="newUser" action="/createuser" method="POST">
+	SIGNUP
+	<input name="firstName" placeholder="First Name">
+	<input name="lastName" placeholder="Last Name">
+	<input name="userName" placeholder="User Name">
+	<input name="password" placeholder="Password">
+	<!-- <input ng-model="newUser.email" type="email">
+	<input ng-model="newUser.city" type="text">
+	<input ng-model="newUser.city" type="text">
+	<input ng-model="newUser.city" type="text"> -->
+	<input type="submit">
+</form>
+
+
+<form action="/login" method="POST">
+	LOGIN
+	<input name="username" placeholder="User Name">
+	<input name="password" placeholder="Password">
+	<input type="submit">
+</form>
