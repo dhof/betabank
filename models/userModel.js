@@ -14,8 +14,10 @@ var userSchema = mongoose.Schema({
 });
 
 // Set Model(Collection) name
-var User = mongoose.model('User', userSchema);
+// var User = mongoose.model('User', userSchema);
 
-module.exports = {
-	User : User
-};
+module.exports = mongoose.model('User', userSchema)
+
+// module.exports = {
+// 	User : User
+// };
