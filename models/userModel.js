@@ -9,7 +9,8 @@ var userSchema = mongoose.Schema({
 	// email     : String,
 	// city	  : String,
 	// state     : String,
-	// country	  : { type: String, default : 'United States' }
+	// country	  : { type: String, default : 'United States' },
+	// group     : { type : Array, default : [] },
 	date      : { type : Date, default : Date.now }
 });
 

@@ -1,4 +1,4 @@
-var app = angular.module('betaBankApp', ['ngRoute']);
+var app = angular.module('betaBankApp', ['ngRoute', 'ngResource']);
 
 
 
@@ -10,7 +10,7 @@ app.config(['$routeProvider', function($routeProvider) {
 		})
 		.when('/profile', {
 			templateUrl : "/html/userprofile.html",
-			controller  : "userController"
+			controller  : "profileController"
 		})
 		.when('/map', {
 			templateUrl : "/html/map.html",
@@ -21,13 +21,14 @@ app.config(['$routeProvider', function($routeProvider) {
 
 app.controller('homeController', ['$scope', '$http', function($scope, $http) {
 	console.log("home control")
-	
 }])
 
-app.controller('userController', ['$scope', '$http', function($scope, $http) {
-	console.log("user control")
-	
-	$http.get('/getuser')
+app.controller('profileController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+	console.log("profile control")
+
+	// var userID = $routeParams.id
+
+	$http.get('/api/users/')
 		.then(function(userData){
 			if(!userData.data.user){
 				// Kick em out
@@ -41,7 +42,8 @@ app.controller('userController', ['$scope', '$http', function($scope, $http) {
 		})
 
 	$scope.showMe = function() {
-		console.log($scope.user)
+		console.log($scope.user.data)
+		// console.log($scope.user.data.user.username)
 	}
 }])
 

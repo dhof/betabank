@@ -43,13 +43,16 @@ app.use(express.static(__dirname + '/public'));
 
 
 // Routes
+
+// GET
 app.get('/', function (req, res) {
 	res.sendFile('html/index.html', {root : './public'})
 });
 
-app.get('/getuser', userCtrl.getUser)
-
+app.get('/api/users', userCtrl.getUser)
 app.get('/logout', userCtrl.userLogout)
+
+// POST
 app.post('/signup', userCtrl.userSignup)
 app.post('/login', userCtrl.userLogin)
 
