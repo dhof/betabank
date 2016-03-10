@@ -1,4 +1,10 @@
 
+<ng-include src="'/html/loggedInHeader.html'"> </ng-include>
+<div class="container">
+	<div>
+	<h3>Welcome back {{ user.username }} ! </h3>
+	<p>{{ greeting }}</p>
 
-	<div>This is a user profile!</div>
-
+	<button ng-click="showMe()">show user</button>
+	</div>
+</div>

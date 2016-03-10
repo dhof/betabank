@@ -1,26 +1,17 @@
 
+<ng-include src="'/html/loggedOutHeader.html'"> </ng-include>
 
-
-<form action="/signup" method="POST">
-	SIGNUP
-	<input name="firstName" placeholder="First Name">
-	<input name="lastName" placeholder="Last Name">
-	<input name="userName" placeholder="User Name">
-	<input name="password" placeholder="Password">
-	<!-- <input ng-model="newUser.email" type="email">
-	<input ng-model="newUser.city" type="text">
-	<input ng-model="newUser.city" type="text">
-	<input ng-model="newUser.city" type="text"> -->
-	<input type="submit">
-</form>
-
-<br>
-<br>
-<br>
-
-<form action="/login" method="POST">
-	LOGIN
-	<input name="username" placeholder="User Name">
-	<input name="password" placeholder="Password">
-	<input type="submit">
-</form>
+<div class="container">
+	<form action="/signup" method="POST">
+		SIGNUP
+		<input name="firstname" placeholder="First Name">
+		<input name="lastname" placeholder="Last Name">
+		<input name="username" placeholder="User Name">
+		<input name="password" placeholder="Password">
+		<!-- <input ng-model="newUser.email" type="email">
+		<input ng-model="newUser.city" type="text">
+		<input ng-model="newUser.city" type="text">
+		<input ng-model="newUser.city" type="text"> -->
+		<input type="submit">
+	</form>
+</div>

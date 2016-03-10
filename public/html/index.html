@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Beta Bank</title>
+	<link rel='shortcut icon' type='image/x-icon' href='/images/favicon.ico' />
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="web/css/styles.css">
 	<!-- jQuery -->
@@ -15,24 +16,20 @@
 	<!-- Angular Route -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"></script>
 	<script src="web/js/scripts.js"></script>
-	
+
+
 
 	 <!-- MINIFIED versions, change for Production
 
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
 	// <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"></script> -->
-	
+
 </head>
 <body>
 
-	<ng-include src="'/html/header.html'"> </ng-include>
+	<div ng-view></div>
 
-	<div class="container" ng-view></div>
-	
 	<ng-include src="'/html/footer.html'"> </ng-include>
-	
-	
-	
 
 </body>
 </html>

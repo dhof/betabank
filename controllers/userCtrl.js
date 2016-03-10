@@ -5,10 +5,10 @@ var passport = require('passport')
 function userSignup (req, res) {
 	bcrypt.genSalt(11, function(error, salt){
         bcrypt.hash(req.body.password, salt, function(hashError, hash){
-			var newUser = new User.User({
-				firstName : req.body.firstName,
-				lastName : req.body.lastName,
-				userName : req.body.userName,
+			var newUser = new User({
+				firstname : req.body.firstname,
+				lastname : req.body.lastname,
+				username : req.body.username,
 				password : hash,
 			});
 			newUser.save(function (saveErr, user){
@@ -26,15 +26,30 @@ function userSignup (req, res) {
 function userLogin (req, res, next){
 	passport.authenticate('local', function(err, user, info) {
         if (err) { return next(err); }
-        if (!user) { return res.send({error : 'Please try logging in again ' + req.body.username}); }
+        if (!user) { return res.send({error : 'Please try logging in again' }); }
         req.logIn(user, function(err) {
             if (err) { return next(err); }
-            return res.redirect('/profile');
+            return res.redirect('/#/profile');
         });
     })(req, res, next);
 }
 
+
+function userLogout (req, res) {
+	req.logOut()
+	res.redirect('/')
+}
+
+
+function getUser (req, res) {
+	console.log("user ", req.user)
+	res.send({user : req.user})
+}
+
+
 module.exports = {
 	userSignup : userSignup,
-	userLogin  : userLogin
+	userLogin  : userLogin,
+	userLogout : userLogout,
+	getUser    : getUser
 }
