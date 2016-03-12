@@ -11,6 +11,7 @@ var userSchema = mongoose.Schema({
 	// state     : String,
 	// country	  : { type: String, default : 'United States' },
 	// group     : { type : Array, default : [] },
+	// completedClimbs : {type : Array, default : [] },
 	date      : { type : Date, default : Date.now }
 });
 

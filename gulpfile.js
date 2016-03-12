@@ -9,7 +9,7 @@ gulp.task('compass', function() {
 	gulp.src(['public/scss/**/*.scss'])
 		.pipe(compass({
 			// config_file: 'config.rb',
-			css: 'public/web',
+			// css: 'public/web',
 			sass: 'public/scss'
 		}))
 		.pipe(concat('styles.css'))

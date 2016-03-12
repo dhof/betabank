@@ -49,6 +49,10 @@ app.get('/', function (req, res) {
 	res.sendFile('html/index.html', {root : './public'})
 });
 
+app.get('/maptest', function (req, res) {
+	res.sendFile('html/maptest.html', {root : './public'})
+});
+
 app.get('/api/users', userCtrl.getUser)
 app.get('/logout', userCtrl.userLogout)
 

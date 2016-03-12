@@ -1,4 +1,4 @@
-var app = angular.module('betaBankApp', ['ngRoute', 'ngResource']);
+var app = angular.module('betaBankApp', ['ngRoute']);
 
 
 
@@ -6,24 +6,25 @@ app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl : "/html/home.html",
-			controller  : "homeController"
+			controller  : "homeControl"
 		})
 		.when('/profile', {
 			templateUrl : "/html/userprofile.html",
-			controller  : "profileController"
+			controller  : "profileControl"
 		})
 		.when('/map', {
 			templateUrl : "/html/map.html",
-			controller  : "mapController"
+			controller  : "mapControl"
 		})
 }])
 
 
-app.controller('homeController', ['$scope', '$http', function($scope, $http) {
+app.controller('homeControl', ['$scope', '$http', function($scope, $http) {
 	console.log("home control")
+
 }])
 
-app.controller('profileController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+app.controller('profileControl', ['$scope', '$http', function($scope, $http) {
 	console.log("profile control")
 
 	// var userID = $routeParams.id
@@ -36,17 +37,18 @@ app.controller('profileController', ['$scope', '$http', '$routeParams', function
 				// $location.url()
 			}
 			else{
-				$scope.user = userData
+				$scope.user = userData.data.user
 				console.log($scope.user)
 			}
 		})
 
 	$scope.showMe = function() {
-		console.log($scope.user.data)
+		console.log($scope.user)
 		// console.log($scope.user.data.user.username)
 	}
 }])
 
-app.controller('mapController', ['$scope', function($scope) {
-	console.log("map control")
-}])
+
+
+
+

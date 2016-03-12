@@ -1,0 +1,35 @@
+html, body {
+  height: 100%;
+}
+
+#logout {
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#logo {
+  color: blue;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#footer {
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+#mapcontainer {
+  height: 100%;
+}
+
+#map {
+  height: 500px;
+}
+
+.new-location {
+  width: 100%;
+  text-align: center;
+}

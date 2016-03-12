@@ -3,7 +3,9 @@
 <div class="container">
 	<div>
 	<h3>Welcome back {{ user.username }} ! </h3>
-	<p>{{ greeting }}</p>
+	<p>Name: {{ user.firstname }} {{ user.lastname }}</p>
+	<p>ID: {{ user._id }}</p>
+	<!-- <p>Created On: {{ user.date }}</p> -->
 
 	<button ng-click="showMe()">show user</button>
 	</div>

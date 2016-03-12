@@ -25,6 +25,7 @@ function userSignup (req, res) {
 
 function userLogin (req, res, next){
 	passport.authenticate('local', function(err, user, info) {
+		console.log(passport.authenticate())
         if (err) { return next(err); }
         if (!user) { return res.send({error : 'Please try logging in again' }); }
         req.logIn(user, function(err) {

@@ -1,4 +1,16 @@
+
 <ng-include src="'/html/loggedInHeader.html'"> </ng-include>
-<div class="container">
-	<div>Google Maps goes here</div>
-</div>
+
+	<!-- <form class="new-location" action="/api/locations" method="POST"> -->
+	<form class="new-location">
+		<input type="text" ng-model="newLocationName">
+		<input type="submit" ng-click="addNewLocation=true" value="Create Location">
+	</form>
+
+	<div id="map" ng-click="createMarker($event)"></div>
+	<div class="markers"></div>
+
+
+
+
+
