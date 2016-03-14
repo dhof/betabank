@@ -3,84 +3,80 @@ angular.module('betaBankApp')
 		
 		console.log("map control")
 		var map = mapFactory.map()
+	
 		
 		
-
+		// Get already created locations from DB, set returned data to $scope.allLocations and create markers and event listeners for all of them
 		$http.get('/api/locations')
 			.then(function(returnedLocations) {
-				console.log(returnedLocations.data)
 				$scope.allLocations = returnedLocations.data
+				console.log($scope.allLocations)
+				console.log($scope.allLocations.length)
+				for (var i = 0; i < $scope.allLocations.length; i++) {
+					var marker = new google.maps.Marker({
+						position	: $scope.allLocations[i].position,
+						map         : map,
+						name        : $scope.allLocations[i].name
+					})
+					marker.addListener('click', function(){
+	                       // Close the previous inforwindow if still open
+	                      $scope.setModal(this.name);
+	                      console.log($scope.currentModal)
+	            });
+				}
 			})
-
-		$scope.populateMarkers = function() {
-			for (var i = 0; i < $scope.allLocations.length; i++) {
-				marker = new google.maps.Marker({
-					position : allLocations[i].position,
-					map 	 : map
-				})
-			}
-		}
-		$scope.populateMarkers()
-
+		
 
 		map.addListener('click', function(event) {
 		        $scope.createMarker({ lat : event.latLng.lat(), lng : event.latLng.lng()})
-		          
-		        console.log(event.latLng.lat())
-		        console.log(event.latLng.lng())
+		        // console.log(event.latLng.lat())
+		        // console.log(event.latLng.lng())
         });
 
 
 
+		$scope.addNewLocation = false;
+		$scope.newLocationName = "";
+
+		// Creates a new marker with an event listener that sets currentModal when the Input box is populated, the Create Location button has been clicked (sets addNewLocation to true) and then user clicks on map
 	 	$scope.createMarker = function(location) {
-	 		// console.log("new Loc ", $scope.addNewLocation)
-	 		if ($scope.addNewLocation === true) {
+	 		if ( $scope.addNewLocation === true && $scope.newLocationName != "" ) {
 	 		marker = new google.maps.Marker({
 	 			position : location,
-	 			map : map
+	 			map : map,
+	 			name : $scope.newLocationName
 	 		})
+	 		marker.addListener('click', function(){
+                       // $scope.showLocation(marker);
+                      $scope.setModal(marker.name);
+                      console.log($scope.currentModal);
+            });
 	 		var newLocation = {
 				name 	: $scope.newLocationName,
 				position 	: location
 			}
+			if (newLocation.position != undefined) {
 				console.log("this is loc ", newLocation)
 				$http.post('/api/locations', newLocation)
 					.then(function(returnData) {
 						console.log(returnData.data)
 					})
+			}
 
 		 	$scope.addNewLocation = false;
 			$scope.newLocationName = "";
 
 	 	}
 	 }
-		
-		$scope.createMarker({lat: 40.0169753, lng: -105.2222925})
-		$scope.createMarker({lat: 40.0169753, lng: -105.2122925})
-		$scope.createMarker({lat: 40.04627736453682 , lng : -105.18791198730469})
-		$scope.createMarker({lat: 40.03812939078128 , lng : -105.23735046386719})
-
-		$scope.addNewLocation = false;
-		// $scope.newLocationName
-
 
 		
+
 
 				
-
-				// marker.addListener('click', function(){
-	   //                     // Close the previous inforwindow if still open
-	   //                     // openWindow.close();
-	   //                     // $scope.showLocation(marker);
-	                      // $scope.setModal(location.name);
-	            //           console.log($scope.currentModal);
-	            // });
 		
 
-		// $scope.showarray = function() {
-		// 	console.log("fddf")
-		// }
-		/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			CONSTRUCTOR AREA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -119,18 +115,8 @@ angular.module('betaBankApp')
 	}
 
 
-	$scope.LocationCreate = function(name) {
-		this.name = name;
-		// this.position = position;
-		this.areas = [];	/* {name: "", problems: []} */
-		this.problems = [];
-		$scope.locations[name] = this;
-		console.log($scope.locations); //test
-	}
-	
-	$scope.makeALocation = function(name){
-		new $scope.LocationCreate(name)
-	}	
+
+
 	
 	$scope.AreaCreate = function(name) {
 		$scope.locations[$scope.currentModal].areas.push(name)

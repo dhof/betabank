@@ -6,23 +6,23 @@
 		<input type="text" ng-model="newLocationName">
 		<input type="submit" ng-click="addNewLocation=true" value="Create Location">
 	</form>
-	<button ng-click="showarray()">show array</button>
+	<button ng-click="showarray()">show stuff</button>
 
 	<div id="map" ng-click="createMarker()"></div>
 	<div class="markers"></div>
 
 
-	<div ng-repeat="(name, constructor) in locations">
-
+	<div ng-repeat="location in allLocations">
+	
 		<div class="modal-container">
-				<div class="modals" ng-show="isModalSet('{{name}}')">
+				<div class="modals" ng-show="isModalSet('{{location.name}}')">
 					<button class="closeModal" ng-click="setModal('')">X</button>
 					<!-- {{locations[name].areas}} <br>
 					{{locations[name].problems}} <br> -->
 					
 				
 					
-						
+						<p class="loc-name">{{location.name}}</p>
 						<button ng-show="addArea;" ng-click="addArea=false">Add new Area</button>
 						<form ng-hide="addArea">
 							<input type="text" placeholder="area name" ng-model="newArea.name">
