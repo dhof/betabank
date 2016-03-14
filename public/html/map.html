@@ -6,11 +6,58 @@
 		<input type="text" ng-model="newLocationName">
 		<input type="submit" ng-click="addNewLocation=true" value="Create Location">
 	</form>
+	<button ng-click="showarray()">show array</button>
 
-	<div id="map" ng-click="createMarker($event)"></div>
+	<div id="map" ng-click="createMarker()"></div>
 	<div class="markers"></div>
 
 
+	<div ng-repeat="(name, constructor) in locations">
+
+		<div class="modal-container">
+				<div class="modals" ng-show="isModalSet('{{name}}')">
+					<button class="closeModal" ng-click="setModal('')">X</button>
+					<!-- {{locations[name].areas}} <br>
+					{{locations[name].problems}} <br> -->
+					
+				
+					
+						
+						<button ng-show="addArea;" ng-click="addArea=false">Add new Area</button>
+						<form ng-hide="addArea">
+							<input type="text" placeholder="area name" ng-model="newArea.name">
+							<input type="submit" value="Add Area" ng-click="makeAnArea(newArea.name); addArea=true">
+						</form> <!-- AREA CREATOR -->
+						
+						<div ng-show="anyAreas(locations[name])">
+						<button ng-show="addProblem" ng-click="addProblem=false">Add new Problem</button>
+						<form ng-hide="addProblem">
+							<!-- <input type="checkbox" ng-model="newProblem.completed"> -->
+							<!-- {{problemCompleted}} -->
+							{{newProblem.completed}}
+							<input type="text" placeholder="problem name" ng-model="newProblem.name">
+							<input type="text" placeholder="problem grade" ng-model="newProblem.grade">
+							<input type="text" placeholder="problem rating" ng-model="newProblem.rating">
+							<select name="areas" ng-model="newProblem.area">
+								<option ng-repeat="area in locations[name].areas" value="{{area}}">{{area}}</option>
+							</select>
+							<input type="submit" value="Add Problem" ng-click="problemCreate(newProblem.name, newProblem.grade, newProblem.rating, newProblem.area); addProblem=true">
+						</form>
+
+							<div>
+								<ul ng-repeat="problem in locations[name].problems" class="problems-output">
+									<li><input type="checkbox"> 
+										
+										 Problem: {{problem.name}}		|   Grade: V{{problem.grade}} 	| Rated: {{problem.rating}} 	|   Wall: {{problem.area}}</li>
+								</ul>
+							</div>
+						</div>
+
+
+
+				</div> <!-- MODAL -->
+				</div> <!-- MODAL CONTAINER -->
+			</div>
 
 
 

@@ -29,7 +29,7 @@ app.controller('profileControl', ['$scope', '$http', function($scope, $http) {
 
 	// var userID = $routeParams.id
 
-	$http.get('/api/users/')
+	$http.get('/api/user')
 		.then(function(userData){
 			if(!userData.data.user){
 				// Kick em out

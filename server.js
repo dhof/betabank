@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 
 var userCtrl = require('./controllers/userCtrl.js');
+var locationCtrl = require('./controllers/locationCtrl.js');
 var passportConfig = require('./config/passportConfig.js');
 
 // Create express app object
@@ -53,12 +54,14 @@ app.get('/maptest', function (req, res) {
 	res.sendFile('html/maptest.html', {root : './public'})
 });
 
-app.get('/api/users', userCtrl.getUser)
+app.get('/api/user', userCtrl.getUser)
 app.get('/logout', userCtrl.userLogout)
+app.get('/api/locations', locationCtrl.getLocations)
 
 // POST
 app.post('/signup', userCtrl.userSignup)
 app.post('/login', userCtrl.userLogin)
+app.post('/api/locations', locationCtrl.createLocation)
 
 
 
