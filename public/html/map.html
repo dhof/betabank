@@ -17,31 +17,28 @@
 		<div class="modal-container">
 				<div class="modals" ng-show="isModalSet('{{location.name}}')">
 					<button class="closeModal" ng-click="setModal('')">X</button>
-					<!-- {{locations[name].areas}} <br>
-					{{locations[name].problems}} <br> -->
-					
 				
 					
 						<p class="loc-name">{{location.name}}</p>
-						<button ng-show="addArea;" ng-click="addArea=false">Add new Area</button>
-						<form ng-hide="addArea">
-							<input type="text" placeholder="area name" ng-model="newArea.name">
-							<input type="submit" value="Add Area" ng-click="makeAnArea(newArea.name); addArea=true">
-						</form> <!-- AREA CREATOR -->
+						<button ng-show="addWall;" ng-click="addWall=false">Add new Wall</button>
+						<form ng-hide="addWall">
+							<input type="text" placeholder="wall name" ng-model="newWallName">
+							<input type="submit" value="Add Wall" ng-click="makeNewWall({name : newWallName, id : location._id}); addWall=true">
+						</form> <!-- WALL CREATOR -->
 						
-						<div ng-show="anyAreas(locations[name])">
+						<!-- <div ng-show="anyAreas(locations[name])"> -->
 						<button ng-show="addProblem" ng-click="addProblem=false">Add new Problem</button>
 						<form ng-hide="addProblem">
 							<!-- <input type="checkbox" ng-model="newProblem.completed"> -->
 							<!-- {{problemCompleted}} -->
-							{{newProblem.completed}}
+							<!-- {{newProblem.completed}} -->
 							<input type="text" placeholder="problem name" ng-model="newProblem.name">
 							<input type="text" placeholder="problem grade" ng-model="newProblem.grade">
 							<input type="text" placeholder="problem rating" ng-model="newProblem.rating">
-							<select name="areas" ng-model="newProblem.area">
-								<option ng-repeat="area in locations[name].areas" value="{{area}}">{{area}}</option>
+							<select name="walls" ng-model="newProblem.wall">
+								<option ng-repeat="wall in location.walls" value="{{wall.wallName}}">{{wall.wallName}}</option>
 							</select>
-							<input type="submit" value="Add Problem" ng-click="problemCreate(newProblem.name, newProblem.grade, newProblem.rating, newProblem.area); addProblem=true">
+							<input type="submit" value="Add Problem" ng-click="makeNewProblem({id : location._id, name : newProblem.name, grade : newProblem.grade, rating : newProblem.rating, wall : newProblem.wall}); addProblem=true">
 						</form>
 
 							<div>

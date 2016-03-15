@@ -38,7 +38,7 @@ angular.module('betaBankApp')
 		$scope.addNewLocation = false;
 		$scope.newLocationName = "";
 
-		// Creates a new marker with an event listener that sets currentModal when the Input box is populated, the Create Location button has been clicked (sets addNewLocation to true) and then user clicks on map
+		// Create new Marker and Location
 	 	$scope.createMarker = function(location) {
 	 		if ( $scope.addNewLocation === true && $scope.newLocationName != "" ) {
 	 		marker = new google.maps.Marker({
@@ -66,27 +66,47 @@ angular.module('betaBankApp')
 		 	$scope.addNewLocation = false;
 			$scope.newLocationName = "";
 
-	 	}
-	 }
+	 		}
+		}
 
+
+		// Create new Wall
+		$scope.makeNewWall = function(wallInfo) {
+			var newWall = {
+				locationId : wallInfo.id,
+				name 	   : wallInfo.name
+			}
+			console.log("newWall ", newWall)
+			$http.post('/api/walls', newWall)
+				.then(function(returnedWall) {
+					$scope.locationWalls = returnedWall
+				})
+		}
+
+
+		// Create new Problem
+		$scope.makeNewProblem = function(problemInfo) {
+			var newProblem = {
+				locationId  : problemInfo.id,
+				name 	    : problemInfo.name,
+				grade 	    : problemInfo.grade,
+				rating	    : problemInfo.rating,
+				wall 		: problemInfo.wall
+				// addedBy     : user.username,
+				// firstAscent : newProblem.fa       
+			}
+			console.log("newProblems ", newProblem)
+			$http.post('/api/problems', newProblem)
+				.then(function(returnData) {
+					console.log(returnData.data)
+				})
+		}
 		
 
-
-				
-		
-
-		
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			CONSTRUCTOR AREA
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-
-
-	$scope.locations = {};
-	$scope.newArea = {};
-	$scope.newProblem = {};
-	$scope.addArea = true;
+	$scope.addWall = true;
 	$scope.addProblem = true;
+	$scope.currentModal = "";
+
 	// $scope.problemCompleted = null;
 	// $scope.problemCompletedFunc = function() {
 	// 	if ($scope.problemCreated === false) {
@@ -95,7 +115,7 @@ angular.module('betaBankApp')
 	// 		$scope.problemCreated = false;
 	// 	}
 	// }
-	$scope.currentModal = "";
+	
 
 
 	$scope.setModal = function(selectedModal) {
@@ -105,40 +125,6 @@ angular.module('betaBankApp')
 	$scope.isModalSet = function(modalName) {
 		return $scope.currentModal === modalName;
 	}
-	
-	$scope.anyAreas = function(name) {
-		if (name.areas.length === 0) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-
-
-
-	
-	$scope.AreaCreate = function(name) {
-		$scope.locations[$scope.currentModal].areas.push(name)
-		$scope.newArea = {};
-		console.log($scope.locations); // test
-	}
-
-	$scope.makeAnArea = function(name){
-		console.log("current modal " + name)
-		new $scope.AreaCreate(name)
-	}
-
-	$scope.problemCreate = function(problem, grade, rating, area) {
-		// this.completed = completed;
-		this.problem = problem;
-		this.grade = grade;
-		this.rating = rating;
-		this.area = area;
-		$scope.locations[$scope.currentModal].problems.push({name: this.problem, grade: this.grade, rating: this.rating, area: this.area})
-		$scope.newProblem = {};
-		// console.log($scope.locations[$scope.currentModal].problems[0].name);
-	}	
 
 
 

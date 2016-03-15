@@ -41,9 +41,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 
-
-
-// Routes
+// ROUTES
 
 // GET
 app.get('/', function (req, res) {
@@ -63,6 +61,9 @@ app.post('/signup', userCtrl.userSignup)
 app.post('/login', userCtrl.userLogin)
 app.post('/api/locations', locationCtrl.createLocation)
 
+// UPDATE
+app.post('/api/walls', locationCtrl.createWall)
+app.post('/api/problems', locationCtrl.createProblem)
 
 
 
