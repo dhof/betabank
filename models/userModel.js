@@ -11,7 +11,9 @@ var userSchema = mongoose.Schema({
 	// state     : String,
 	// country	  : { type: String, default : 'United States' },
 	// group     : { type : Array, default : [] },
-	// completedClimbs : {type : Array, default : [] },
+	completedClimbs : {},
+		// locationId : String,
+		// { wallName: String[]}},
 	date      : { type : Date, default : Date.now }
 });
 
@@ -21,5 +23,6 @@ var userSchema = mongoose.Schema({
 module.exports = mongoose.model('User', userSchema)
 
 // module.exports = {
-// 	User : User
+// 	User 		 : User,
+// 	createdClimb : createdClimb
 // };

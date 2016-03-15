@@ -59,6 +59,27 @@ html, body {
   float: right;
 }
 
+.problems-output {
+  width: 100%;
+}
+
 .loc-name {
   text-align: center;
+}
+
+/*.problem-span {
+	width: 5%;
+}
+
+.grade-span {
+	width: 1%;
+}
+
+.wall-span {
+	width: 4%;
+}
+
+*/
+span {
+  width: 40px;
 }

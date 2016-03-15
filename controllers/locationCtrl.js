@@ -5,6 +5,8 @@ function createLocation (req, res) {
 	var newLocation = new Locations({
 		name   : req.body.name,
 		position : req.body.position
+
+		
 	})
 	newLocation.save(function (saveErr, location) {
 		if (saveErr) {
@@ -25,7 +27,9 @@ function getLocations (req, res) {
 
 
 function createWall (req, res) {
-	Locations.findOne({_id : req.body.locationId }, function(err, foundLocation) {
+	Locations.findOne({_id : req.body.locationId },
+	 function(err, foundLocation) {
+	 	console.log(foundLocation)
 		foundLocation.walls.push({ 
 			wallName : req.body.name, 
 			problems : []
@@ -45,11 +49,15 @@ function createProblem (req, res) {
 		for (var i = 0; i < foundLocation.walls.length; i++) {
 			if(foundLocation.walls[i].wallName === req.body.wall) {
 				console.log("wall ", foundLocation.walls[i].problems)
-				foundLocation.walls[i].problems.push({ 
+				foundLocation.walls[i].problems.push(
+					
+					{ 
 					problemName : req.body.name, 
 					grade 		: req.body.grade,
-					rating 		: req.body.rating
-				})
+					rating 		: req.body.rating,
+					wall        : req.body.wall
+				}
+				)
 				foundLocation.markModified('problems')
 				foundLocation.save(function(err, saved) {
 					console.log("saved ", saved)

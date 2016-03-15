@@ -64,6 +64,7 @@ app.post('/api/locations', locationCtrl.createLocation)
 // UPDATE
 app.post('/api/walls', locationCtrl.createWall)
 app.post('/api/problems', locationCtrl.createProblem)
+app.post('/api/completedClimbs', userCtrl.completedClimbs)
 
 
 

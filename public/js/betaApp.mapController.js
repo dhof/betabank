@@ -1,6 +1,19 @@
 angular.module('betaBankApp')
 	.controller('mapControl', ['$scope', '$http', 'mapFactory', function($scope, $http, mapFactory) {
 		
+		$http.get('/api/user')
+			.then(function(userData){
+				if(!userData.data.user){
+					// Kick em out
+					window.location.href = '/'
+					// $location.url()
+				}
+				else{
+					$scope.user = userData.data.user
+					console.log($scope.user)
+				}
+			})
+
 		console.log("map control")
 		var map = mapFactory.map()
 	
@@ -74,7 +87,7 @@ angular.module('betaBankApp')
 		$scope.makeNewWall = function(wallInfo) {
 			var newWall = {
 				locationId : wallInfo.id,
-				name 	   : wallInfo.name
+				name 	   : wallInfo.name,
 			}
 			console.log("newWall ", newWall)
 			$http.post('/api/walls', newWall)
@@ -102,6 +115,17 @@ angular.module('betaBankApp')
 				})
 		}
 		
+
+		$scope.pushCC = function (problemInfo) {
+			console.log(problemInfo)
+			var completedClimb = {
+				locationId  : problemInfo.id,
+				wallName    : problemInfo.wallName,
+				problemName : problemInfo.problemName
+			}
+			$http.post('/api/completedClimbs', completedClimb)
+			
+		}
 
 	$scope.addWall = true;
 	$scope.addProblem = true;

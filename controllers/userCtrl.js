@@ -46,10 +46,27 @@ function getUser (req, res) {
 	res.send({user : req.user})
 }
 
+function completedClimbs (req, res) {
+	User.findOne({_id : req.user._id}, function (err, user) {
+
+		user.completedClimbs = user.completedClimbs || {}
+		user.completedClimbs[req.body.locationId] = user.completedClimbs[req.body.locationId] || {}
+		user.completedClimbs[req.body.locationId][req.body.wallName] = user.completedClimbs[req.body.locationId][req.body.wallName] || []
+		user.completedClimbs[req.body.locationId][req.body.wallName].push(req.body.problemName)
+		user.markModified('completedClimbs')
+		user.save(function (err, saved) {
+			console.log("saved ", saved)
+			res.sendStatus(200)
+		})
+		
+	})
+}
+
 
 module.exports = {
-	userSignup : userSignup,
-	userLogin  : userLogin,
-	userLogout : userLogout,
-	getUser    : getUser
+	userSignup     : userSignup,
+	userLogin      : userLogin,
+	userLogout 	   : userLogout,
+	getUser        : getUser,
+	completedClimbs : completedClimbs
 }

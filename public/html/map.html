@@ -41,12 +41,14 @@
 							<input type="submit" value="Add Problem" ng-click="makeNewProblem({id : location._id, name : newProblem.name, grade : newProblem.grade, rating : newProblem.rating, wall : newProblem.wall}); addProblem=true">
 						</form>
 
-							<div>
-								<ul ng-repeat="problem in locations[name].problems" class="problems-output">
-									<li><input type="checkbox"> 
-										
-										 Problem: {{problem.name}}		|   Grade: V{{problem.grade}} 	| Rated: {{problem.rating}} 	|   Wall: {{problem.area}}</li>
-								</ul>
+					
+								<div ng-repeat="wall in location.walls">
+									<div ng-repeat="problem in wall.problems" class="problems-output">
+										<input ng-checked="user.completedClimbs[location._id][wall.wallName].indexOf(problem.problemName) > -1" type="checkbox" ng-click="pushCC({id : location._id, wallName : wall.wallName, problemName : problem.problemName})"> 
+										 Problem: <span class="problem-span">{{problem.problemName}}</span>		|   Grade: v<span class="grade-span">{{problem.grade}}</span> 	| Rating: {{problem.rating}} 	|   Wall: <span class="wall-span">{{problem.wall}}</span>
+									</div>
+									
+								</div>
 							</div>
 						</div>
 
