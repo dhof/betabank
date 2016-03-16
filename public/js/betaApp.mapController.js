@@ -103,6 +103,7 @@ angular.module('betaBankApp')
 				.then(function(returnedData) {
 					$scope.allLocations = returnedData.data
 				})
+			$scope.newProblem = {}
 		}
 
 
@@ -126,6 +127,7 @@ angular.module('betaBankApp')
 			.then(function(returnedData) {
 				$scope.allLocations = returnedData.data
 			})
+			$scope.newProblem = {}
 		}
 		
 
