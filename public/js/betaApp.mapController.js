@@ -76,6 +76,11 @@ angular.module('betaBankApp')
 					})
 			}
 
+			$http.get('/api/locations')
+				.then(function(returnedData) {
+					$scope.allLocations = returnedData.data
+				})
+
 		 	$scope.addNewLocation = false;
 			$scope.newLocationName = "";
 
@@ -93,6 +98,10 @@ angular.module('betaBankApp')
 			$http.post('/api/walls', newWall)
 				.then(function(returnedWall) {
 					$scope.locationWalls = returnedWall
+				})
+			$http.get('/api/locations')
+				.then(function(returnedData) {
+					$scope.allLocations = returnedData.data
 				})
 		}
 
@@ -113,6 +122,10 @@ angular.module('betaBankApp')
 				.then(function(returnData) {
 					console.log(returnData.data)
 				})
+			$http.get('/api/locations')
+			.then(function(returnedData) {
+				$scope.allLocations = returnedData.data
+			})
 		}
 		
 

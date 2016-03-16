@@ -3,6 +3,25 @@ html, body {
   width: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			BASE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.main-container {
+  height: 100%;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.hover-me {
+  color: blue;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			NAV
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -86,13 +105,20 @@ h1 {
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			PROFILE PAGE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.profile-container {
+  height: 98%;
+}
+
 .cc-list {
   background-color: red;
   clear: left;
   font-family: helvetica;
   float: left;
-  height: 100%;
+  height: 92.8%;
   overflow: hidden;
+  padding-left: 2%;
+  padding-top: 5%;
+  width: 20%;
 }
 
 .float-right {
@@ -102,34 +128,61 @@ h1 {
 .location-name {
   font-size: 18px;
   font-weight: 600;
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .location-wall {
   font-size: 16px;
   margin-left: 20px;
+  margin-bottom: 5px;
 }
 
 .climb-name {
   font-size: 14px;
   margin-left: 25px;
+  margin-bottom: 2px;
 }
 
 .theclimb {
   width: 10%;
 }
 
+.profile-content {
+  padding-left: 25%;
+  padding-top: 5%;
+  text-align: center;
+}
+
+.welcome-user {
+  font-family: helvetica;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.climbs-text {
+  font-family: helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			MAP PAGE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-#mapcontainer {
-  height: 100%;
+/*#mapcontainer {
+	height: 100%;
 }
-
+*/
 #map {
-  height: 500px;
+  height: 88%;
 }
 
 .new-location {
+  margin-bottom: 5px;
+  margin-top: 5px;
   width: 100%;
   text-align: center;
 }

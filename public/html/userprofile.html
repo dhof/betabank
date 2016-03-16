@@ -1,9 +1,9 @@
 
 <ng-include src="'/html/loggedInHeader.html'"> </ng-include>
-<div class="container">
+<!-- <div class="profile-container"> -->
 
 	<div class="cc-list">
-		
+		 <div class="climbs-text">Completed Climbs</div>
 		<ul>
 			<li ng-repeat="(id, walls) in user.completedClimbs">
 				<h4 class="location-name">{{id}}</h4>
@@ -24,13 +24,15 @@
 
 
 
-	<div class="float-right">
-	<h3>Welcome back {{ user.username }} ! </h3>
-	<p>Name: {{ user.firstname }} {{ user.lastname }}</p>
-	<p>ID: {{ user._id }}</p>
-	<!-- <p>Created On: {{ user.date }}</p> -->
-	<p>completed Climbs {{user.completedClimbs}}</p>
+	<div class="profile-content">
+		<h2 class="welcome-user">Welcome back, {{ user.firstname }}! </h2>
 
-	<button ng-click="showMe()">show user</button>
+		<img src="https://media.giphy.com/media/WMCvODAwQC5KU/giphy.gif" alt="">
+		<!-- <p>Name: {{ user.firstname }} {{ user.lastname }}</p>
+		<p>ID: {{ user._id }}</p>
+		<p>Created On: {{ user.date }}</p>
+		<p>completed Climbs {{user.completedClimbs}}</p>
+
+	<button ng-click="showMe()">show user</button> -->
 	</div>
-</div>
+<!-- </div> -->
