@@ -3,6 +3,9 @@ html, body {
   width: 100%;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			NAV
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #logout {
   color: black;
   font-size: 18px;
@@ -13,6 +16,7 @@ html, body {
   color: blue;
   font-size: 20px;
   font-weight: bold;
+  top: 45%;
 }
 
 #footer {
@@ -22,6 +26,54 @@ html, body {
   width: 100%;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			HOME PAGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/*.background-img {
+	background-image: url("../../../images/home_bg.jpg");
+	width: 100vh;
+	height: 100vw;
+}*/
+.form-log-sign {
+  margin-top: 40px;
+}
+
+.home-form {
+  /*margin-bottom: 10px;*/
+  margin: 0 auto 0 auto;
+  width: 40%;
+}
+
+h1 {
+  font-family: helvetica, sans-serif;
+  font-size: 30px !important;
+  font-weight: bold !important;
+  margin-bottom: 40px;
+}
+
+.center-div {
+  text-align: center;
+}
+
+.boldme {
+  font-weight: bold;
+}
+
+.bigger {
+  font-size: 16px;
+}
+
+.home-form {
+  margin-bottom: 40px;
+}
+
+span {
+  margin-bottom: 8px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			MAP PAGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #mapcontainer {
   height: 100%;
 }

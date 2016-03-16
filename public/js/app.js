@@ -22,6 +22,18 @@ app.config(['$routeProvider', function($routeProvider) {
 app.controller('homeControl', ['$scope', '$http', function($scope, $http) {
 	console.log("home control")
 
+	$scope.needToSignUp = false
+	$scope.alreadySignedIn = false
+
+	// $scope.showSignUp = function
+
+	$http.get('/api/user')
+		.then(function(userData){
+			if(!userData.data.user){
+				$scope.alreadySignedIn = true
+			}	
+		})
+
 }])
 
 app.controller('profileControl', ['$scope', '$http', function($scope, $http) {
@@ -38,7 +50,7 @@ app.controller('profileControl', ['$scope', '$http', function($scope, $http) {
 			}
 			else{
 				$scope.user = userData.data.user
-				console.log($scope.user)
+				console.log("user ", $scope.user)
 			}
 		})
 

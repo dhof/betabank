@@ -1,17 +1,52 @@
 
 <ng-include src="'/html/loggedOutHeader.html'"> </ng-include>
 
-<div class="container">
-	<form action="/signup" method="POST">
-		SIGNUP
-		<input name="firstname" placeholder="First Name">
-		<input name="lastname" placeholder="Last Name">
-		<input name="username" placeholder="User Name">
-		<input name="password" placeholder="Password">
-		<!-- <input ng-model="newUser.email" type="email">
-		<input ng-model="newUser.city" type="text">
-		<input ng-model="newUser.city" type="text">
-		<input ng-model="newUser.city" type="text"> -->
-		<input type="submit">
-	</form>
-</div>
+	<div class="container">
+			
+		<div class="center-div">
+					
+			<h1>Welcome to the Beta Bank!</h1>
+				
+			<div ng-show="alreadySignedIn">
+				<span class="boldme">Login</span>
+					<br>
+					<form action="/login" method="POST" class="home-form">
+						<div class="form-group">
+							<!-- <label>Username</label> -->
+							<input class="form-control" name="username" placeholder="User Name">
+						</div>
+						<div class="form-group">
+							<!-- <label>Password</label> -->
+							<input type="password" name="password" class="form-control" placeholder="Password">
+						</div>
+						<div class="center-div">
+							<button type="submit" class="btn btn-default bigger">Login</button>
+						</div>
+					</form>
+				
+				
+					<span class="boldme">Need to...</span>
+					<br>
+					<button ng-click="needToSignUp=true" class="btn btn-default boldme bigger">Sign Up?</button>
+				
+				<div class="form-log-sign">
+					<form ng-show="needToSignUp" action="/signup" method="POST" class="home-form">
+						<div class="form-group">
+							<input name="firstname" class="form-control" placeholder="First Name">
+						</div>
+						<div class="form-group">
+							<input name="lastname" class="form-control" placeholder="Last Name">
+						</div>
+						<div class="form-group">
+
+							<input name="username" class="form-control" placeholder="User Name">
+						</div>
+						<div class="form-group">
+							<input type="password" name="password" class="form-control" placeholder="Password">
+						</div>
+						<button type="submit" class="btn btn-default">Login</button>
+					</form>
+				</div>
+			</div> <!-- already signed in -->
+		</div>
+	</div>
