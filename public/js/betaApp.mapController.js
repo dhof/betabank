@@ -119,9 +119,11 @@ angular.module('betaBankApp')
 		$scope.pushCC = function (problemInfo) {
 			console.log(problemInfo)
 			var completedClimb = {
-				locationId  : problemInfo.id,
-				wallName    : problemInfo.wallName,
-				problemName : problemInfo.problemName
+				locationId   : problemInfo.id,
+				locationName : problemInfo.locationName,
+				wallName     : problemInfo.wallName,
+				problemName  : problemInfo.problemName,
+				grade : problemInfo.grade
 			}
 			$http.post('/api/completedClimbs', completedClimb)
 			

@@ -39,7 +39,6 @@ html, body {
 }
 
 .home-form {
-  /*margin-bottom: 10px;*/
   margin: 0 auto 0 auto;
   width: 40%;
 }
@@ -57,6 +56,7 @@ h1 {
 
 .boldme {
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .bigger {
@@ -67,8 +67,55 @@ h1 {
   margin-bottom: 40px;
 }
 
-span {
-  margin-bottom: 8px;
+.form-group {
+  margin-top: 5px;
+}
+
+.move-margin-up {
+  margin-top: 5px;
+}
+
+.move-margin-down {
+  margin-bottom: 60px;
+}
+
+.login {
+  margin-bottom: 50px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			PROFILE PAGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.cc-list {
+  background-color: red;
+  clear: left;
+  font-family: helvetica;
+  float: left;
+  height: 100%;
+  overflow: hidden;
+}
+
+.float-right {
+  float: right;
+}
+
+.location-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.location-wall {
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.climb-name {
+  font-size: 14px;
+  margin-left: 25px;
+}
+
+.theclimb {
+  width: 10%;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

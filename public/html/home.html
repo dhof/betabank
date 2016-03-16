@@ -8,7 +8,7 @@
 			<h1>Welcome to the Beta Bank!</h1>
 				
 			<div ng-show="alreadySignedIn">
-				<span class="boldme">Login</span>
+				<span class="boldme login">Please Login</span>
 					<br>
 					<form action="/login" method="POST" class="home-form">
 						<div class="form-group">
@@ -20,14 +20,14 @@
 							<input type="password" name="password" class="form-control" placeholder="Password">
 						</div>
 						<div class="center-div">
-							<button type="submit" class="btn btn-default bigger">Login</button>
+							<button type="submit" class="btn btn-default bigger move-margin-down">Login</button>
 						</div>
 					</form>
 				
 				
 					<span class="boldme">Need to...</span>
 					<br>
-					<button ng-click="needToSignUp=true" class="btn btn-default boldme bigger">Sign Up?</button>
+					<button ng-click="needToSignUp=true" class="btn btn-default move-margin-up bigger">Sign Up?</button>
 				
 				<div class="form-log-sign">
 					<form ng-show="needToSignUp" action="/signup" method="POST" class="home-form">

@@ -47,12 +47,13 @@ function getUser (req, res) {
 }
 
 function completedClimbs (req, res) {
+	console.log(req.body)
 	User.findOne({_id : req.user._id}, function (err, user) {
 
 		user.completedClimbs = user.completedClimbs || {}
-		user.completedClimbs[req.body.locationId] = user.completedClimbs[req.body.locationId] || {}
-		user.completedClimbs[req.body.locationId][req.body.wallName] = user.completedClimbs[req.body.locationId][req.body.wallName] || []
-		user.completedClimbs[req.body.locationId][req.body.wallName].push(req.body.problemName)
+		user.completedClimbs[req.body.locationName] = user.completedClimbs[req.body.locationName] || {}
+		user.completedClimbs[req.body.locationName][req.body.wallName] = user.completedClimbs[req.body.locationName][req.body.wallName] || []
+		user.completedClimbs[req.body.locationName][req.body.wallName].push({name : req.body.problemName, grade : req.body.grade})
 		user.markModified('completedClimbs')
 		user.save(function (err, saved) {
 			console.log("saved ", saved)
