@@ -1,11 +1,11 @@
-
+<div class="home-bg">
 <ng-include src="'/html/loggedOutHeader.html'"> </ng-include>
 
-	<div class="container">
+	
 			
 		<div class="center-div">
 					
-			<h1>Welcome to the Beta Bank!</h1>
+			<h1 class="home-header">Welcome to the Beta Bank!</h1>
 				
 			<div ng-show="alreadySignedIn">
 				<span class="boldme login">Please Login</span>
@@ -25,7 +25,7 @@
 					</form>
 				
 				
-					<span class="boldme">Need to...</span>
+					<span class="need-to">Need to...</span>
 					<br>
 					<button ng-click="needToSignUp=true" class="btn btn-default move-margin-up bigger">Sign Up?</button>
 				

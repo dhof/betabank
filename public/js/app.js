@@ -54,6 +54,7 @@ app.controller('profileControl', ['$scope', '$http', function($scope, $http) {
 			}
 		})
 
+
 	$scope.showMe = function() {
 		console.log($scope.user)
 		// console.log($scope.user.data.user.username)
