@@ -44,7 +44,7 @@
 					
 								<div ng-repeat="wall in location.walls">
 									<div ng-repeat="problem in wall.problems" class="problems-output">
-										<input ng-checked="user.completedClimbs[location.name][wall.wallName].indexOf(problem.problemName) != 1" type="checkbox" ng-click="pushCC({id : location._id, locationName : location.name, wallName : wall.wallName, problemName : problem.problemName, grade : problem.grade})"> 
+										<input ng-checked="user.completedClimbs[location.name][wall.wallName].indexOf(problem.problemName) > -1" type="checkbox" ng-click="pushCC({id : location._id, locationName : location.name, wallName : wall.wallName, problemName : problem.problemName, grade : problem.grade})"> 
 										 Problem: <span class="problem-span">{{problem.problemName}}</span>		|   Grade: v<span class="grade-span">{{problem.grade}}</span> 	| Rating: {{problem.rating}} 	|   Wall: <span class="wall-span">{{problem.wall}}</span>
 									</div>
 									
