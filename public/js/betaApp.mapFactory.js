@@ -11,7 +11,9 @@ angular.module('betaBankApp')
 		return map;
 	}
 
-
+	function roma(){
+		console.log("i'm roma!");
+	};
 
 	return {
 		map: map	
