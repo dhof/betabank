@@ -12,7 +12,8 @@ var passportConfig = require('./config/passportConfig.js');
 var app = express();
 
 // Connect to mongoDB
-mongoose.connect('mongodb://localhost/betaBankDB');
+// mongoose.connect('mongodb://localhost/betaBankDB');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/betabank-dev');
 
 
 /** Express Session Setup **/
@@ -34,7 +35,7 @@ app.use(passport.session());
 app.use(logger('dev'));
 app.use(parser.json());
 app.use(parser.urlencoded({ extended : true}));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/html'));
 
 
 
