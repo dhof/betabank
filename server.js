@@ -35,7 +35,7 @@ app.use(passport.session());
 app.use(logger('dev'));
 app.use(parser.json());
 app.use(parser.urlencoded({ extended : true}));
-app.use(express.static(__dirname + '/public/html'));
+app.use(express.static(__dirname + '/public'));
 
 
 
@@ -46,7 +46,7 @@ app.use(express.static(__dirname + '/public/html'));
 
 // GET
 app.get('/', function (req, res) {
-	res.sendFile('html/index.html', {root : './public'})
+	res.sendFile('public/html/index.html', {root : './public'})
 });
 
 app.get('/maptest', function (req, res) {
