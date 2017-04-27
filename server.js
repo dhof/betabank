@@ -46,7 +46,7 @@ app.use(express.static(__dirname + '/public'));
 
 // GET
 app.get('/', function (req, res) {
-	res.sendFile('public/html/index.html', {root : './public'})
+	res.sendFile('public/html/index.html', {root : './'})
 });
 
 app.get('/maptest', function (req, res) {
